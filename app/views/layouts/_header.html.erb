@@ -1,0 +1,42 @@
+<!-- Begin Navigation -->
+<% if controller.controller_name == 'home' && controller.action_name == 'index' %>
+	<nav class="wrapper">
+		<div id='overlay2'></div>
+		<div class="content container navigation">
+			<h2 id="releaseHeader"><%= image_tag('logo.png', class: "logo") %></h2>
+			<span class="border2"></span>
+			<h3 class="subHeader">Debut album out January 2017</h3>
+		</div>
+	
+		<div id="myNav" class="overlay">
+		  <a href="#" class="closebtn" onclick="return false">×</a>
+		  <div class="overlay-content">
+			<p>A ‘soft error’ is computer language for a faulty occurrence in a digital memory system that changes an instruction in a program or a data value. When associated with music making, it’s a name that inevitably suggest the notion, or even celebration, of happenstance and serendipity, and that’s certainly part of the spirit evoked by Mechanism, the seductive, widescreen debut album from instrumental duo Soft Error.</p>
+			<br/><p>The album will be released by <a href="http://villagegreenrecording.co.uk/" target="_blank">Village Green</a> in January 2017</p>
+		  </div>
+		</div>
+		
+		<div class="circleContainer">
+	
+			<div class="info" onclick="openNav()"><i class="fa fa-info-circle"></i></div>
+			<div class="down"><a href="#section2"><i class="fa fa-angle-double-down"></i></a></div>
+			
+		</div>
+
+	
+		<script>
+		function openNav() {
+		    document.getElementById("myNav").style.height = "100%";
+		}
+		</script>
+	
+	</nav>
+	<% if user_signed_in? %>
+		<div class="userInfo">
+			<div>{ Logged in as <strong><%= current_user.email %></strong> }</div>
+			<%= link_to 'Edit', edit_user_registration_path, class: "clearFixer" %> | 
+			<%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: "clearFixer" %> |
+			<%= link_to 'CMS', root_path %></div>
+		</div>
+	<% end %>
+<% end %>
